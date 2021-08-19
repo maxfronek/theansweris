@@ -1,0 +1,8 @@
+:root {
+
+    blue: #0f1e91;
+
+}
+
+body {display: flex; align-items: center; justify-content: center; background-color: var(--blue);}
+h1 {color: white;}
