@@ -1,56 +1,11 @@
 $(document).ready(function () {
 
-    /*
-        $.each(data, function(entryIndex, entry) {
-
-        let clue = entry['question'];
-
-        var html = '<div class="entry">';
-        html += '<h3 class="title">' + entry['title'] + '</h3>';
-        html += '<div class="link_url">' + entry['link_url'] + '</div>';
-        html += '<div class="image_src">';
-        html += entry['image_src'];
-        if (entry['quote']) {
-            html += '<div class="quote">';
-            $.each(entry['quote'], function(lineIndex, line) {
-            html += '<div class="quote-line">' + line + '</div>';
-            });
-            if (entry['author']) {
-            html += '<div class="quote-author">' + entry['author'] + '</div>';
-            }
-            html += '</div>';
-        }
-        html += '</div>';
-        html += '</div>';
-
-        $('#dictionary').append(html).fadeIn(); 
-
-
-    function getClue() {
-
-        $.getJSON('./assets/clues.json', function(data) { 
-
-            let randomClue = data[Math.floor(Math.random()*data.length)],
-                clueQuestion = randomClue['question'],
-                clueAnswer = randomClue['answer'],
-                clueCategory = randomClue['category'],
-                clueValue = randomClue['value'];
-
-                console.log('The question is: ' + clueQuestion);
-                console.log('The answer is: ' + clueAnswer);
-
-      
-        }); // end getJSON
-    } // end getClue
-
-    getClue();
-    */
 
     var request = new XMLHttpRequest()
 
     // Open a new connection, using the GET request on the URL endpoint
-    request.open('GET', 'https://jservice.io/api/clues', true)
-
+    // request.open('GET', 'https://jservice.io/api/clues', true) old API with 10 clues
+    request.open('GET', 'https://theansweris.app/database/clues.json', true)
     request.onload = function () {
     // Begin accessing JSON data here
     var clues = JSON.parse(this.response)
@@ -61,7 +16,7 @@ $(document).ready(function () {
 
         let clueQuestion = clues[randomClue].question,
             clueAnswer = clues[randomClue].answer,
-            clueCat = clues[randomClue].category.title,
+            clueCat = clues[randomClue].category,
             clueVal = clues[randomClue].value;
         /*
         console.log("In the category " + clueCat);    
@@ -76,7 +31,7 @@ $(document).ready(function () {
         
            $(displayClue).html(clueQuestion);
            $(displayCat).html(clueCat);
-           $(displayValue).html("$" + clueVal);
+           $(displayValue).html(clueVal);
 
            let button = document.getElementById('theAnswerIs');
 
