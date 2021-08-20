@@ -30,7 +30,7 @@ $(document).ready(function () {
             displayCat = document.getElementById('category'),
             displayValue = document.getElementById('value'),
             displayAnswer = document.getElementById('answer'),
-            trimmedAnswer = clueAnswer.replace(/\\|\//g,'');
+            trimmedAnswer = clueAnswer.replace(/\\|/g,'');
 
            $(displayClue).html(trimmedClueQuestion);
            $(displayClue).addClass('loaded')

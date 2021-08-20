@@ -1,3 +1,33 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 4152716, 2021-08-20T19:23:43-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: KorinnaStd-Bold by ITC
+ * URL: https://www.myfonts.com/fonts/itc/korinna/bld/
+ * Copyright: Copyright &amp;#x00A9; 1985, 1987, 1999, 2001 Adobe Systems Incorporated.  All Rights Reserved.
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3f5d8c");
+  
+@font-face {
+  font-family: "KorinnaStd-Bold";
+  src: url('./fonts/webFonts/KorinnaStdBold/font.woff2') format('woff2'), url('./fonts/webFonts/KorinnaStdBold/font.woff') format('woff');
+}
+
+
+
 :root {
 
     --blue: #0f1e91;
@@ -20,7 +50,7 @@ body { background: rgb(15,30,145);
 h4 {font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: .1rem; font-size: 2rem; text-align: center; margin-bottom: 0;text-shadow: -1px 1px rgb(0,0,0); margin-top: 0;}
 a {color: white; text-decoration: none;}
 
-blockquote {text-transform: uppercase; font-size: 2.6rem; text-align: center; max-width: 800px; font-family: 'ITC Korinna', serif; font-weight: bold;text-shadow: -3px 3px rgb(0,0,0); grid-area: content; transition: 1s all var(--easeInQuint); display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 0 auto;}
+blockquote {text-transform: uppercase; font-size: 2.6rem; text-align: center; max-width: 800px; font-family: 'KorinnaStd-Bold', serif; font-weight: bold;text-shadow: -3px 3px rgb(0,0,0); grid-area: content; transition: 1s all var(--easeInQuint); display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 0 auto;}
 blockquote span#clue {transition: .3s all ease-in-out; transform: translateY(3rem); }
 blockquote span#clue.faded {transform: translateY(-1rem); opacity: .33;}
 blockquote span:last-of-type {margin-top: 0;}
@@ -61,7 +91,7 @@ header {text-align: center; grid-area: header;}
 }
 
 @media screen and (max-width:481px) {
-    .container {grid-template-rows: 50px 1fr 50px;}
-    h4 {font-size: 1.6rem;}
-    blockquote {font-size: 1.6rem;}
+    .container {grid-template-rows: 50px 1fr 50px; padding: 1rem; min-height: calc(100vh - 2rem);}
+    h4 {font-size: 1.4rem;}
+    blockquote {font-size: 1.4rem;}
 }
