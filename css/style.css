@@ -23,7 +23,7 @@
   
 @font-face {
   font-family: "KorinnaStd-Bold";
-  src: url('./fonts/webFonts/KorinnaStdBold/font.woff2') format('woff2'), url('./fonts/webFonts/KorinnaStdBold/font.woff') format('woff');
+  src: url('../fonts/webFonts/KorinnaStdBold/font.woff2') format('woff2'), url('../fonts/webFonts/KorinnaStdBold/font.woff') format('woff');
 }
 
 
