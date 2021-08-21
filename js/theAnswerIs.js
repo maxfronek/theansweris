@@ -4,14 +4,15 @@ $(document).ready(function () {
     var request = new XMLHttpRequest()
 
     // Open a new connection, using the GET request on the URL endpoint
-    // request.open('GET', 'https://jservice.io/api/clues', true) old API with 10 clues
+    // request.open('GET', 'https://jservice.io/api/clues', true) old API with 100 clues
     request.open('GET', 'https://theansweris.app/database/clues.json', true)
     request.onload = function () {
     // Begin accessing JSON data here
     var clues = JSON.parse(this.response)
 
     if (request.status >= 200 && request.status < 400) {
-        const randomClue = Math.floor(Math.random() * clues.length);    
+        const randomClue = Math.floor(Math.random() * clues.length),
+              loader = document.getElementById('loader');   
         console.log("Clue number: " + randomClue);
 
         let clueQuestion = clues[randomClue].question,
@@ -44,6 +45,8 @@ $(document).ready(function () {
            $('footer').html(answerButton);
 
 
+           $(loader).fadeOut("fast", function(){ });
+
         let showAnswer = document.getElementById('theAnswerIs');
 
          $(showAnswer).on("click", function showAnswerFunction() { 
@@ -63,7 +66,11 @@ $(document).ready(function () {
 
 
             $(nextQuestion).on("click", function reloadPage() {
-                location.reload();
+                $('.container').fadeOut( "fast", function(){});
+                setTimeout(function() {
+                    location.reload();
+                }, 150);
+
             });
 
         }); // end button on click
