@@ -91,7 +91,8 @@ header {text-align: center; grid-area: header;}
 }
 
 @media screen and (max-width:481px) {
-    .container {grid-template-rows: 50px 1fr 100px; padding: 1rem; min-height: calc(100vh - 2rem);}
+    body {min-height: 100vh;}
+    .container {grid-template-rows: 50px 1fr 100px; padding: 1rem; min-height: calc(80vh - 2rem); background: transparent;}
     h4 {font-size: 1.4rem;}
     blockquote {font-size: 1.4rem; text-shadow: -1px 1px 0 rgb(0,0,0);}
     footer {padding-bottom: 4rem;}
