@@ -9,45 +9,69 @@ $(document).ready(function () {
     request.onload = function () {
     // Begin accessing JSON data here
     var clues = JSON.parse(this.response)
+        /*
+    let categorySelection = $('#catSelect').find(":selected").val();
+        categorizedData = $.grep(clues, function(cat) {
+            return cat.category === categorySelection; // this needs to run a "contains" on the string of the categorySelection value i.e. if the value is "Shakes" return anything that also says "Shakespeare" - currently returns exact matches only
+        }); // end categorized data grep
+        */
+
+
 
     function getClue() {
-        const randomClue = Math.floor(Math.random() * clues.length),
-        loader = document.getElementById('loader');   
+    /*    categorySelection = $('#catSelect').find(":selected").val();
+        var categorizedData = $.grep(clues, function(cat) {
+            return cat.category === categorySelection; // this needs to run a "contains" on the string of the categorySelection value i.e. if the value is "Shakes" return anything that also says "Shakespeare" - currently returns exact matches only      
+        }) // end categorized data grep */
+        /*
+        $('#catSelect').on("change", function() {
+            var categorySelection = $('#catSelect').find(":selected").val();
+            console.log('The new category will be: ' + categorySelection)
+            var categorizedData = $.grep(clues, function(cat) {
+                return cat.category === categorySelection; // this needs to run a "contains" on the string of the categorySelection value i.e. if the value is "Shakes" return anything that also says "Shakespeare" - currently returns exact matches only      
+            }) // end categorized data grep
+
+        }); // end catselect onChange
+        */
+        var randomClue = Math.floor(Math.random() * clues.length);
+
+        var loader = document.getElementById('loader');   
         console.log("Clue number: " + randomClue);
+        // console.log("categorySelection: " + categorySelection);
 
-  let clueQuestion = clues[randomClue].question,
-      trimmedClueQuestion = clueQuestion.slice(1, -1);
-      clueAnswer = clues[randomClue].answer,
-      clueCat = clues[randomClue].category,
-      clueVal = clues[randomClue].value;
-  /*
-  console.log("In the category " + clueCat);    
-  console.log(clueQuestion);
-  console.log("What is: " + clueAnswer);
-  console.log("You've earned: " + clueVal);
-  */
+        let clueQuestion = clues[randomClue].question,
+            trimmedClueQuestion = clueQuestion.slice(1, -1);
+            clueAnswer = clues[randomClue].answer,
+            clueCat = clues[randomClue].category,
+            clueVal = clues[randomClue].value;
+        /*
+        console.log("In the category " + clueCat);    
+        console.log(clueQuestion);
+        console.log("What is: " + clueAnswer);
+        console.log("You've earned: " + clueVal);
+        */
 
-  let displayClue = document.getElementById('clue'),
-      displayCat = document.getElementById('category'),
-      displayValue = document.getElementById('value'),
-      displayAnswer = document.getElementById('answer'),
-      trimmedAnswer = clueAnswer.replace(/\\|/g,'');
+        let displayClue = document.getElementById('clue'),
+            displayCat = document.getElementById('category'),
+            displayValue = document.getElementById('value'),
+            displayAnswer = document.getElementById('answer'),
+            trimmedAnswer = clueAnswer.replace(/\\|/g,'');
 
-     $(displayClue).html(trimmedClueQuestion);
-     $(displayClue).addClass('loaded')
-     $(displayCat).html(clueCat);
-     $(displayValue).html(clueVal);
-     $(displayAnswer).html("What is " + trimmedAnswer + "?");
+                $(displayClue).html(trimmedClueQuestion);
+                $(displayClue).addClass('loaded')
+                $(displayCat).html(clueCat);
+                $(displayValue).html(clueVal);
+                $(displayAnswer).html("What is " + trimmedAnswer + "?");
 
-  const answerButton = document.createElement('button');
-     $(answerButton).attr("id", "theAnswerIs");
-       answerButton.textContent = 'The Answer Is...';
-     $('footer').html(answerButton);
+        const answerButton = document.createElement('button');
+            $(answerButton).attr("id", "theAnswerIs");
+            answerButton.textContent = 'The Answer Is...';
+            $('footer').html(answerButton);
 
 
-     $(loader).fadeOut("fast", function(){ });
+            $(loader).fadeOut("fast", function(){ });
 
-  let showAnswer = document.getElementById('theAnswerIs');
+        let showAnswer = document.getElementById('theAnswerIs');
 
    $(showAnswer).on("click", function showAnswerFunction() { 
       $(displayClue).addClass('faded');
@@ -69,21 +93,25 @@ $(document).ready(function () {
           $('.container').fadeOut( "fast", function(){});
           setTimeout(function() {
                   $('.container__wrap').load('index.html .container', function() {
-                      getClue();
+                    /* if (categorySelection == 'all') {
+                        getClue();
+                    } else {
+                        // console.log("This category is unrecognized")
+                        getClue();
+                    } */
+                    getClue()
                   });
           }, 150);
 
-      });
+      }); // end nextQuestion onclick
 
   }); // end button on click
 
   
-    }
+    } // end function getClue();
 
     if (request.status >= 200 && request.status < 400) {
-        
-        getClue();
-
+            getClue();
       } else {
         console.log('API is inaccessible')
       }

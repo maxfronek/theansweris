@@ -76,9 +76,11 @@ button#nextQuestion:hover, button#nextQuestion:focus, .btn#nextQuestion:hover, .
 button#nextQuestion:hover svg, button#nextQuestion:focus svg, .btn#nextQuestion:hover svg, .btn#nextQuestion svg:focus {transform: translateX(1rem); fill: var(--yellow);}
 
 header {text-align: center; grid-area: header;}
-
+header select {font-family: 'Bebas Neue', 'Helvetica', 'Arial', sans-serif; margin-bottom: 2rem; letter-spacing: .1rem;background-color: transparent; -webkit-appearance: none; border: 1px solid white; padding: .5rem 2rem; color: white; text-align: center;}
+header select option {text-align: center;}
 
 .loader {z-index: 3; display: flex; justify-content: center; align-items: center; height: 100%; width: 100%; position: absolute; pointer-events: none; background: var(--bg-gradient);}
+.loader img {max-width: 300px; margin: 0 auto;}
 .loader span {background-color: var(--yellow); width: 10px; height: 5px; margin: 0 1px;}
 .loader span:first-of-type {margin-left: 0;}
 .loader span:last-of-type {margin-right: 0;}
